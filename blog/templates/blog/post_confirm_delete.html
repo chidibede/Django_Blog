@@ -1,0 +1,22 @@
+{% extends 'blog/base.html'%}
+{% load crispy_forms_tags %}
+
+
+    {% block content %}
+        <div class='posts'>
+            <form class='form-group' method='POST'> {% csrf_token %}
+                <fieldset class='form-group'>
+                    <legend class='text-center'>Delete Post</legend>
+                    <h2>Are you sure you want to delete?</h2>
+
+                </fieldset>
+
+                <div class='form-group'>
+                    <button class='btn btn-outline-danger' type='submit'>Yes, Delete</button>
+                    <a href="{% url 'post-detail' post.id %}" class='btn btn-outline-secondary' type='submit'>cancel</a>
+                </div>
+
+            </form>
+            
+        </div>
+    {% endblock %}
